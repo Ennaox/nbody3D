@@ -1,0 +1,479 @@
+basenbody.c:91:30: optimized:   Inlining atoll/13 into main/24 (always_inline).
+basenbody.c:120:7: note: Considering inline candidate move_particles/23.
+basenbody.c:120:7: missed:   will not early inline: main/24->move_particles/23, call is cold and code would grow at least by 65
+basenbody.c:105:3: note: Considering inline candidate init/22.
+basenbody.c:105:3: missed:   will not early inline: main/24->init/22, call is cold and code would grow at least by 41
+basenbody.c:157:3: missed:   not inlinable: main/24 -> free/34, function body not available
+basenbody.c:154:3: missed:   not inlinable: main/24 -> __builtin_puts/33, function body not available
+basenbody.c:152:3: missed:   not inlinable: main/24 -> printf/28, function body not available
+basenbody.c:151:3: missed:   not inlinable: main/24 -> __builtin_puts/33, function body not available
+basenbody.c:149:11: missed:   not inlinable: main/24 -> sqrt/32, function body not available
+basenbody.c:144:7: missed:   not inlinable: main/24 -> fflush/30, function body not available
+basenbody.c:137:7: missed:   not inlinable: main/24 -> printf/28, function body not available
+basenbody.c:122:23: missed:   not inlinable: main/24 -> omp_get_wtime/31, function body not available
+basenbody.c:120:7: missed:   not inlinable: main/24 -> move_particles/23, --param max-inline-insns-auto limit reached
+basenbody.c:118:25: missed:   not inlinable: main/24 -> omp_get_wtime/31, function body not available
+basenbody.c:112:92: missed:   not inlinable: main/24 -> fflush/30, function body not available
+basenbody.c:112:3: missed:   not inlinable: main/24 -> printf/28, function body not available
+basenbody.c:109:3: missed:   not inlinable: main/24 -> printf/28, function body not available
+basenbody.c:105:3: missed:   not inlinable: main/24 -> init/22, --param max-inline-insns-auto limit reached
+basenbody.c:102:19: missed:   not inlinable: main/24 -> malloc/27, function body not available
+/usr/include/stdlib.h:375:10: missed:   not inlinable: main/24 -> strtoll/35, function body not available
+basenbody.c:64:27: missed:   not inlinable: move_particles/23 -> pow/26, function body not available
+basenbody.c:38:22: missed:   not inlinable: init/22 -> rand/25, function body not available
+basenbody.c:37:29: missed:   not inlinable: init/22 -> rand/25, function body not available
+basenbody.c:36:22: missed:   not inlinable: init/22 -> rand/25, function body not available
+basenbody.c:33:28: missed:   not inlinable: init/22 -> rand/25, function body not available
+basenbody.c:32:21: missed:   not inlinable: init/22 -> rand/25, function body not available
+basenbody.c:31:28: missed:   not inlinable: init/22 -> rand/25, function body not available
+basenbody.c:27:21: missed:   not inlinable: init/22 -> rand/25, function body not available
+basenbody.c:26:21: missed:   not inlinable: init/22 -> rand/25, function body not available
+Unit growth for small function inlining: 216->216 (0%)
+
+Inlined 1 calls, eliminated 0 functions
+
+basenbody.c:26:21: missed: statement clobbers memory: _1 = rand ();
+basenbody.c:23:21: missed: couldn't vectorize loop
+basenbody.c:23:21: missed: not vectorized: control flow in loop.
+basenbody.c:21:6: note: vectorized 0 loops in function.
+basenbody.c:26:21: missed: statement clobbers memory: _1 = rand ();
+basenbody.c:26:21: missed: statement clobbers memory: _1 = rand ();
+basenbody.c:27:21: missed: statement clobbers memory: _2 = rand ();
+basenbody.c:31:28: missed: statement clobbers memory: _3 = rand ();
+basenbody.c:32:21: missed: statement clobbers memory: _9 = rand ();
+basenbody.c:33:28: missed: statement clobbers memory: _12 = rand ();
+basenbody.c:36:22: missed: statement clobbers memory: _16 = rand ();
+basenbody.c:37:29: missed: statement clobbers memory: _19 = rand ();
+basenbody.c:38:22: missed: statement clobbers memory: _23 = rand ();
+basenbody.c:40:1: note: ***** Analysis failed with vector mode V8SF
+basenbody.c:40:1: note: ***** Skipping vector mode V32QI, which would repeat the analysis for V8SF
+basenbody.c:79:21: missed: couldn't vectorize loop
+basenbody.c:81:14: missed: not vectorized: relevant stmt not supported: _34 = _33->x;
+basenbody.c:49:21: missed: couldn't vectorize loop
+basenbody.c:64:27: missed: not vectorized: unsupported data-type double
+basenbody.c:57:25: missed: couldn't vectorize loop
+basenbody.c:64:27: missed: not vectorized: unsupported data-type double
+basenbody.c:43:6: note: vectorized 0 loops in function.
+basenbody.c:81:14: note: ***** Analysis succeeded with vector mode V8SF
+basenbody.c:81:14: note: SLPing BB part
+basenbody.c:73:15: note: Costing subgraph: 
+basenbody.c:73:15: note: node 0x3679988 (max_nunits=2, refcnt=1)
+basenbody.c:73:15: note: op template: _5->vx = _25;
+basenbody.c:73:15: note: 	stmt 0 _5->vx = _25;
+basenbody.c:73:15: note: 	stmt 1 _5->vy = _28;
+basenbody.c:73:15: note: 	children 0x3679a00
+basenbody.c:73:15: note: node 0x3679a00 (max_nunits=2, refcnt=1)
+basenbody.c:73:15: note: op template: _25 = _23 + _24;
+basenbody.c:73:15: note: 	stmt 0 _25 = _23 + _24;
+basenbody.c:73:15: note: 	stmt 1 _28 = _26 + _27;
+basenbody.c:73:15: note: 	children 0x3679a78 0x3679af0
+basenbody.c:73:15: note: node 0x3679a78 (max_nunits=2, refcnt=1)
+basenbody.c:73:15: note: op template: _23 = _5->vx;
+basenbody.c:73:15: note: 	stmt 0 _23 = _5->vx;
+basenbody.c:73:15: note: 	stmt 1 _26 = _5->vy;
+basenbody.c:73:15: note: node 0x3679af0 (max_nunits=2, refcnt=1)
+basenbody.c:73:15: note: op template: _24 = dt_60(D) * fx_95;
+basenbody.c:73:15: note: 	stmt 0 _24 = dt_60(D) * fx_95;
+basenbody.c:73:15: note: 	stmt 1 _27 = dt_60(D) * fy_206;
+basenbody.c:73:15: note: 	children 0x3679b68 0x3679be0
+basenbody.c:73:15: note: node (external) 0x3679b68 (max_nunits=1, refcnt=1)
+basenbody.c:73:15: note: 	{ dt_60(D), dt_60(D) }
+basenbody.c:73:15: note: node 0x3679be0 (max_nunits=2, refcnt=1)
+basenbody.c:73:15: note: op template: fx_95 = PHI <fx_74(4)>
+basenbody.c:73:15: note: 	stmt 0 fx_95 = PHI <fx_74(4)>
+basenbody.c:73:15: note: 	stmt 1 fy_206 = PHI <fy_75(4)>
+basenbody.c:73:15: note: 	children 0x3679c58
+basenbody.c:73:15: note: node 0x3679c58 (max_nunits=2, refcnt=2)
+basenbody.c:73:15: note: op template: fx_74 = _18 + fx_79;
+basenbody.c:73:15: note: 	stmt 0 fx_74 = _18 + fx_79;
+basenbody.c:73:15: note: 	stmt 1 fy_75 = _19 + fy_83;
+basenbody.c:73:15: note: 	children 0x3679cd0 0x3679f28
+basenbody.c:73:15: note: node (external) 0x3679cd0 (max_nunits=2, refcnt=1)
+basenbody.c:73:15: note: 	stmt 0 _18 = dx_69 / d_3_over_2_73;
+basenbody.c:73:15: note: 	stmt 1 _19 = dy_70 / d_3_over_2_73;
+basenbody.c:73:15: note: 	children 0x3679d48 0x3679eb0
+basenbody.c:73:15: note: node 0x3679d48 (max_nunits=2, refcnt=1)
+basenbody.c:73:15: note: op template: dx_69 = _3 - _6;
+basenbody.c:73:15: note: 	stmt 0 dx_69 = _3 - _6;
+basenbody.c:73:15: note: 	stmt 1 dy_70 = _7 - _8;
+basenbody.c:73:15: note: 	children 0x3679dc0 0x3679e38
+basenbody.c:73:15: note: node 0x3679dc0 (max_nunits=2, refcnt=1)
+basenbody.c:73:15: note: op template: _3 = _2->x;
+basenbody.c:73:15: note: 	stmt 0 _3 = _2->x;
+basenbody.c:73:15: note: 	stmt 1 _7 = _2->y;
+basenbody.c:73:15: note: node 0x3679e38 (max_nunits=2, refcnt=1)
+basenbody.c:73:15: note: op template: _6 = _5->x;
+basenbody.c:73:15: note: 	stmt 0 _6 = _5->x;
+basenbody.c:73:15: note: 	stmt 1 _8 = _5->y;
+basenbody.c:73:15: note: node (external) 0x3679eb0 (max_nunits=1, refcnt=1)
+basenbody.c:73:15: note: 	{ d_3_over_2_73, d_3_over_2_73 }
+basenbody.c:73:15: note: node 0x3679f28 (max_nunits=2, refcnt=1)
+basenbody.c:73:15: note: op template: fx_79 = PHI <fx_74(12), 0.0(6)>
+basenbody.c:73:15: note: 	stmt 0 fx_79 = PHI <fx_74(12), 0.0(6)>
+basenbody.c:73:15: note: 	stmt 1 fy_83 = PHI <fy_75(12), 0.0(6)>
+basenbody.c:73:15: note: 	children 0x3679c58 0x3679fa0
+basenbody.c:73:15: note: node (constant) 0x3679fa0 (max_nunits=1, refcnt=1)
+basenbody.c:73:15: note: 	{ 0.0, 0.0 }
+basenbody.c:73:15: note: Cost model analysis: 
+basenbody.c:73:15: note: Cost model analysis for part in loop 1:
+  Vector cost: 64
+  Scalar cost: 120
+basenbody.c:73:15: note: Cost model analysis for part in loop 3:
+  Vector cost: 52
+  Scalar cost: 64
+basenbody.c:73:15: note: Basic block will be vectorized using SLP
+basenbody.c:73:15: note: Vectorizing SLP tree:
+basenbody.c:73:15: note: node 0x3679988 (max_nunits=2, refcnt=1)
+basenbody.c:73:15: note: op template: _5->vx = _25;
+basenbody.c:73:15: note: 	stmt 0 _5->vx = _25;
+basenbody.c:73:15: note: 	stmt 1 _5->vy = _28;
+basenbody.c:73:15: note: 	children 0x3679a00
+basenbody.c:73:15: note: node 0x3679a00 (max_nunits=2, refcnt=1)
+basenbody.c:73:15: note: op template: _25 = _23 + _24;
+basenbody.c:73:15: note: 	stmt 0 _25 = _23 + _24;
+basenbody.c:73:15: note: 	stmt 1 _28 = _26 + _27;
+basenbody.c:73:15: note: 	children 0x3679a78 0x3679af0
+basenbody.c:73:15: note: node 0x3679a78 (max_nunits=2, refcnt=1)
+basenbody.c:73:15: note: op template: _23 = _5->vx;
+basenbody.c:73:15: note: 	stmt 0 _23 = _5->vx;
+basenbody.c:73:15: note: 	stmt 1 _26 = _5->vy;
+basenbody.c:73:15: note: node 0x3679af0 (max_nunits=2, refcnt=1)
+basenbody.c:73:15: note: op template: _24 = dt_60(D) * fx_95;
+basenbody.c:73:15: note: 	stmt 0 _24 = dt_60(D) * fx_95;
+basenbody.c:73:15: note: 	stmt 1 _27 = dt_60(D) * fy_206;
+basenbody.c:73:15: note: 	children 0x3679b68 0x3679be0
+basenbody.c:73:15: note: node (external) 0x3679b68 (max_nunits=1, refcnt=1)
+basenbody.c:73:15: note: 	{ dt_60(D), dt_60(D) }
+basenbody.c:73:15: note: node 0x3679be0 (max_nunits=2, refcnt=1)
+basenbody.c:73:15: note: op template: fx_95 = PHI <fx_74(4)>
+basenbody.c:73:15: note: 	stmt 0 fx_95 = PHI <fx_74(4)>
+basenbody.c:73:15: note: 	stmt 1 fy_206 = PHI <fy_75(4)>
+basenbody.c:73:15: note: 	children 0x3679c58
+basenbody.c:73:15: note: node 0x3679c58 (max_nunits=2, refcnt=2)
+basenbody.c:73:15: note: op template: fx_74 = _18 + fx_79;
+basenbody.c:73:15: note: 	stmt 0 fx_74 = _18 + fx_79;
+basenbody.c:73:15: note: 	stmt 1 fy_75 = _19 + fy_83;
+basenbody.c:73:15: note: 	children 0x3679cd0 0x3679f28
+basenbody.c:73:15: note: node (external) 0x3679cd0 (max_nunits=2, refcnt=1)
+basenbody.c:73:15: note: 	stmt 0 _18 = dx_69 / d_3_over_2_73;
+basenbody.c:73:15: note: 	stmt 1 _19 = dy_70 / d_3_over_2_73;
+basenbody.c:73:15: note: 	children 0x3679d48 0x3679eb0
+basenbody.c:73:15: note: node 0x3679d48 (max_nunits=2, refcnt=1)
+basenbody.c:73:15: note: op template: dx_69 = _3 - _6;
+basenbody.c:73:15: note: 	stmt 0 dx_69 = _3 - _6;
+basenbody.c:73:15: note: 	stmt 1 dy_70 = _7 - _8;
+basenbody.c:73:15: note: 	children 0x3679dc0 0x3679e38
+basenbody.c:73:15: note: node 0x3679dc0 (max_nunits=2, refcnt=1)
+basenbody.c:73:15: note: op template: _3 = _2->x;
+basenbody.c:73:15: note: 	stmt 0 _3 = _2->x;
+basenbody.c:73:15: note: 	stmt 1 _7 = _2->y;
+basenbody.c:73:15: note: node 0x3679e38 (max_nunits=2, refcnt=1)
+basenbody.c:73:15: note: op template: _6 = _5->x;
+basenbody.c:73:15: note: 	stmt 0 _6 = _5->x;
+basenbody.c:73:15: note: 	stmt 1 _8 = _5->y;
+basenbody.c:73:15: note: node (external) 0x3679eb0 (max_nunits=1, refcnt=1)
+basenbody.c:73:15: note: 	{ d_3_over_2_73, d_3_over_2_73 }
+basenbody.c:73:15: note: node 0x3679f28 (max_nunits=2, refcnt=1)
+basenbody.c:73:15: note: op template: fx_79 = PHI <fx_74(12), 0.0(6)>
+basenbody.c:73:15: note: 	stmt 0 fx_79 = PHI <fx_74(12), 0.0(6)>
+basenbody.c:73:15: note: 	stmt 1 fy_83 = PHI <fy_75(12), 0.0(6)>
+basenbody.c:73:15: note: 	children 0x3679c58 0x3679fa0
+basenbody.c:73:15: note: node (constant) 0x3679fa0 (max_nunits=1, refcnt=1)
+basenbody.c:73:15: note: 	{ 0.0, 0.0 }
+basenbody.c:73:15: note: ------>vectorizing SLP node starting from: _23 = _5->vx;
+basenbody.c:73:15: note: transform load. ncopies = 1
+basenbody.c:73:15: note: create vector_type-pointer variable to type: vector(2) float  vectorizing a pointer ref: _5->vx
+basenbody.c:73:15: note: created vectp.24_204
+basenbody.c:73:15: note: add new stmt: vect__23.25_203 = MEM <vector(2) float> [(float *)vectp.24_204];
+basenbody.c:73:15: note: add new stmt: vectp.24_202 = vectp.24_204 + 4;
+basenbody.c:73:15: note: ------>vectorizing SLP node starting from: fx_79 = PHI <fx_74(12), 0.0(6)>
+basenbody.c:73:15: note: ------>vectorizing SLP node starting from: fx_74 = _18 + fx_79;
+basenbody.c:73:15: note: vect_is_simple_use: operand fx_79 = PHI <fx_74(12), 0.0(6)>, type of def: internal
+basenbody.c:73:15: note: transform binary/unary operation.
+basenbody.c:73:15: note: add new stmt: vect_fx_74.27_198 = _200 + vect_fx_79.26_199;
+basenbody.c:73:15: note: ------>vectorizing SLP node starting from: fx_95 = PHI <fx_74(4)>
+basenbody.c:73:15: note: ------>vectorizing SLP node starting from: _24 = dt_60(D) * fx_95;
+basenbody.c:73:15: note: vect_is_simple_use: operand fx_95 = PHI <fx_74(4)>, type of def: internal
+basenbody.c:73:15: note: transform binary/unary operation.
+basenbody.c:73:15: note: add new stmt: vect__24.29_196 = _201 * vect_fx_95.28_197;
+basenbody.c:73:15: note: ------>vectorizing SLP node starting from: _25 = _23 + _24;
+basenbody.c:73:15: note: vect_is_simple_use: operand _5->vx, type of def: internal
+basenbody.c:73:15: note: vect_is_simple_use: operand dt_60(D) * fx_95, type of def: internal
+basenbody.c:73:15: note: transform binary/unary operation.
+basenbody.c:73:15: note: add new stmt: vect__25.30_195 = vect__23.25_203 + vect__24.29_196;
+basenbody.c:73:15: note: ------>vectorizing SLP node starting from: _5->vx = _25;
+basenbody.c:73:15: note: vect_is_simple_use: operand _23 + _24, type of def: internal
+basenbody.c:73:15: note: vect_is_simple_use: operand _26 + _27, type of def: internal
+basenbody.c:73:15: note: transform store. ncopies = 1
+basenbody.c:73:15: note: create vector_type-pointer variable to type: vector(2) float  vectorizing a pointer ref: _5->vx
+basenbody.c:73:15: note: created vectp.32_194
+basenbody.c:73:15: note: add new stmt: MEM <vector(2) float> [(float *)vectp.32_194] = vect__25.30_195;
+basenbody.c:73:15: note: vectorizing stmts using SLP.
+basenbody.c:73:15: optimized: basic block part vectorized using 32 byte vectors
+basenbody.c:81:14: note: Costing subgraph: 
+basenbody.c:81:14: note: node 0x367a018 (max_nunits=2, refcnt=1)
+basenbody.c:81:14: note: op template: _33->x = _40;
+basenbody.c:81:14: note: 	stmt 0 _33->x = _40;
+basenbody.c:81:14: note: 	stmt 1 _33->y = _44;
+basenbody.c:81:14: note: 	children 0x367a090
+basenbody.c:81:14: note: node 0x367a090 (max_nunits=2, refcnt=1)
+basenbody.c:81:14: note: op template: _40 = _34 + _38;
+basenbody.c:81:14: note: 	stmt 0 _40 = _34 + _38;
+basenbody.c:81:14: note: 	stmt 1 _44 = _41 + _43;
+basenbody.c:81:14: note: 	children 0x367a108 0x367a180
+basenbody.c:81:14: note: node 0x367a108 (max_nunits=2, refcnt=1)
+basenbody.c:81:14: note: op template: _34 = _33->x;
+basenbody.c:81:14: note: 	stmt 0 _34 = _33->x;
+basenbody.c:81:14: note: 	stmt 1 _41 = _33->y;
+basenbody.c:81:14: note: node 0x367a180 (max_nunits=2, refcnt=1)
+basenbody.c:81:14: note: op template: _38 = _37 * dt_60(D);
+basenbody.c:81:14: note: 	stmt 0 _38 = _37 * dt_60(D);
+basenbody.c:81:14: note: 	stmt 1 _43 = _42 * dt_60(D);
+basenbody.c:81:14: note: 	children 0x367a1f8 0x367a270
+basenbody.c:81:14: note: node 0x367a1f8 (max_nunits=2, refcnt=1)
+basenbody.c:81:14: note: op template: _37 = _33->vx;
+basenbody.c:81:14: note: 	stmt 0 _37 = _33->vx;
+basenbody.c:81:14: note: 	stmt 1 _42 = _33->vy;
+basenbody.c:81:14: note: node (external) 0x367a270 (max_nunits=1, refcnt=1)
+basenbody.c:81:14: note: 	{ dt_60(D), dt_60(D) }
+basenbody.c:81:14: note: Cost model analysis: 
+basenbody.c:81:14: note: Cost model analysis for part in loop 2:
+  Vector cost: 76
+  Scalar cost: 144
+basenbody.c:81:14: note: Vectorizing SLP tree:
+basenbody.c:81:14: note: node 0x367a018 (max_nunits=2, refcnt=1)
+basenbody.c:81:14: note: op template: _33->x = _40;
+basenbody.c:81:14: note: 	stmt 0 _33->x = _40;
+basenbody.c:81:14: note: 	stmt 1 _33->y = _44;
+basenbody.c:81:14: note: 	children 0x367a090
+basenbody.c:81:14: note: node 0x367a090 (max_nunits=2, refcnt=1)
+basenbody.c:81:14: note: op template: _40 = _34 + _38;
+basenbody.c:81:14: note: 	stmt 0 _40 = _34 + _38;
+basenbody.c:81:14: note: 	stmt 1 _44 = _41 + _43;
+basenbody.c:81:14: note: 	children 0x367a108 0x367a180
+basenbody.c:81:14: note: node 0x367a108 (max_nunits=2, refcnt=1)
+basenbody.c:81:14: note: op template: _34 = _33->x;
+basenbody.c:81:14: note: 	stmt 0 _34 = _33->x;
+basenbody.c:81:14: note: 	stmt 1 _41 = _33->y;
+basenbody.c:81:14: note: node 0x367a180 (max_nunits=2, refcnt=1)
+basenbody.c:81:14: note: op template: _38 = _37 * dt_60(D);
+basenbody.c:81:14: note: 	stmt 0 _38 = _37 * dt_60(D);
+basenbody.c:81:14: note: 	stmt 1 _43 = _42 * dt_60(D);
+basenbody.c:81:14: note: 	children 0x367a1f8 0x367a270
+basenbody.c:81:14: note: node 0x367a1f8 (max_nunits=2, refcnt=1)
+basenbody.c:81:14: note: op template: _37 = _33->vx;
+basenbody.c:81:14: note: 	stmt 0 _37 = _33->vx;
+basenbody.c:81:14: note: 	stmt 1 _42 = _33->vy;
+basenbody.c:81:14: note: node (external) 0x367a270 (max_nunits=1, refcnt=1)
+basenbody.c:81:14: note: 	{ dt_60(D), dt_60(D) }
+basenbody.c:81:14: note: ------>vectorizing SLP node starting from: _34 = _33->x;
+basenbody.c:81:14: note: transform load. ncopies = 1
+basenbody.c:81:14: note: create vector_type-pointer variable to type: vector(2) float  vectorizing a pointer ref: _33->x
+basenbody.c:81:14: note: created vectp.34_192
+basenbody.c:81:14: note: add new stmt: vect__34.35_191 = MEM <vector(2) float> [(float *)vectp.34_192];
+basenbody.c:81:14: note: add new stmt: vectp.34_190 = vectp.34_192 + 16;
+basenbody.c:81:14: note: ------>vectorizing SLP node starting from: _37 = _33->vx;
+basenbody.c:81:14: note: transform load. ncopies = 1
+basenbody.c:81:14: note: create vector_type-pointer variable to type: vector(2) float  vectorizing a pointer ref: _33->vx
+basenbody.c:81:14: note: created vectp.37_189
+basenbody.c:81:14: note: add new stmt: vect__37.38_188 = MEM <vector(2) float> [(float *)vectp.37_189];
+basenbody.c:81:14: note: add new stmt: vectp.37_187 = vectp.37_189 + 16;
+basenbody.c:81:14: note: ------>vectorizing SLP node starting from: _38 = _37 * dt_60(D);
+basenbody.c:81:14: note: vect_is_simple_use: operand _33->vx, type of def: internal
+basenbody.c:81:14: note: transform binary/unary operation.
+basenbody.c:81:14: note: add new stmt: vect__38.39_185 = vect__37.38_188 * _186;
+basenbody.c:81:14: note: ------>vectorizing SLP node starting from: _40 = _34 + _38;
+basenbody.c:81:14: note: vect_is_simple_use: operand _33->x, type of def: internal
+basenbody.c:81:14: note: vect_is_simple_use: operand _37 * dt_60(D), type of def: internal
+basenbody.c:81:14: note: transform binary/unary operation.
+basenbody.c:81:14: note: add new stmt: vect__40.40_184 = vect__34.35_191 + vect__38.39_185;
+basenbody.c:81:14: note: ------>vectorizing SLP node starting from: _33->x = _40;
+basenbody.c:81:14: note: vect_is_simple_use: operand _34 + _38, type of def: internal
+basenbody.c:81:14: note: vect_is_simple_use: operand _41 + _43, type of def: internal
+basenbody.c:81:14: note: transform store. ncopies = 1
+basenbody.c:81:14: note: create vector_type-pointer variable to type: vector(2) float  vectorizing a pointer ref: _33->x
+basenbody.c:81:14: note: created vectp.42_183
+basenbody.c:81:14: note: add new stmt: MEM <vector(2) float> [(float *)vectp.42_183] = vect__40.40_184;
+basenbody.c:81:14: note: vectorizing stmts using SLP.
+basenbody.c:81:14: optimized: basic block part vectorized using 32 byte vectors
+basenbody.c:81:14: note: ***** The result for vector mode V32QI would be the same
+basenbody.c:118:25: missed: statement clobbers memory: start_58 = omp_get_wtime ();
+basenbody.c:115:21: missed: couldn't vectorize loop
+basenbody.c:115:21: missed: not vectorized: control flow in loop.
+basenbody.c:88:5: note: vectorized 0 loops in function.
+basenbody.c:118:25: missed: statement clobbers memory: start_58 = omp_get_wtime ();
+/usr/include/stdlib.h:375:10: missed: statement clobbers memory: _69 = strtoll (_1, 0B, 10);
+basenbody.c:102:19: missed: statement clobbers memory: p_45 = malloc (_2);
+basenbody.c:105:3: missed: statement clobbers memory: init (p_45, iftmp.1_37);
+basenbody.c:109:3: missed: statement clobbers memory: printf ("\n\x1b[1mTotal memory size:\x1b[0m %llu B, %llu KiB, %llu MiB\n\n", _2, _4, _3);
+basenbody.c:112:3: missed: statement clobbers memory: printf ("\x1b[1m%5s %10s %10s %8s\x1b[0m\n", "Step", "Time, s", "Interact/s", "GFLOP/s");
+basenbody.c:112:92: missed: statement clobbers memory: fflush (stdout.2_5);
+basenbody.c:118:25: missed: statement clobbers memory: start_58 = omp_get_wtime ();
+basenbody.c:120:7: missed: statement clobbers memory: move_particles (p_45, 9.99999977648258209228515625e-3, iftmp.1_37);
+basenbody.c:122:23: missed: statement clobbers memory: end_61 = omp_get_wtime ();
+basenbody.c:137:7: missed: statement clobbers memory: printf ("%5llu %10.3e %10.3e %8.1f %s\n", i_83, _39, _33, _36, "*");
+basenbody.c:144:7: missed: statement clobbers memory: fflush (stdout.4_79);
+basenbody.c:137:7: missed: statement clobbers memory: printf ("%5llu %10.3e %10.3e %8.1f %s\n", i_83, _17, _27, _18, "");
+basenbody.c:144:7: missed: statement clobbers memory: fflush (stdout.4_28);
+basenbody.c:151:3: missed: statement clobbers memory: __builtin_puts (&"-----------------------------------------------------"[0]);
+basenbody.c:152:3: missed: statement clobbers memory: printf ("\x1b[1m%s %4s \x1b[42m%10.1lf +- %.1lf GFLOP/s\x1b[0m\n", "Average performance:", "", rate_51, drate_52);
+basenbody.c:154:3: missed: statement clobbers memory: __builtin_puts (&"-----------------------------------------------------"[0]);
+basenbody.c:157:3: missed: statement clobbers memory: free (p_45);
+basenbody.c:157:3: note: ***** Analysis failed with vector mode V4DI
+basenbody.c:157:3: note: ***** Skipping vector mode V32QI, which would repeat the analysis for V4DI
+v1nbody.c:93:30: optimized:   Inlining atoll/13 into main/24 (always_inline).
+v1nbody.c:128:7: note: Considering inline candidate move_particles/23.
+v1nbody.c:128:7: missed:   will not early inline: main/24->move_particles/23, call is cold and code would grow at least by 76
+v1nbody.c:113:3: note: Considering inline candidate init/22.
+v1nbody.c:113:3: missed:   will not early inline: main/24->init/22, call is cold and code would grow at least by 49
+v1nbody.c:165:3: missed:   not inlinable: main/24 -> free/35, function body not available
+v1nbody.c:162:3: missed:   not inlinable: main/24 -> __builtin_puts/34, function body not available
+v1nbody.c:160:3: missed:   not inlinable: main/24 -> printf/29, function body not available
+v1nbody.c:159:3: missed:   not inlinable: main/24 -> __builtin_puts/34, function body not available
+v1nbody.c:157:11: missed:   not inlinable: main/24 -> sqrt/33, function body not available
+v1nbody.c:152:7: missed:   not inlinable: main/24 -> fflush/31, function body not available
+v1nbody.c:145:7: missed:   not inlinable: main/24 -> printf/29, function body not available
+v1nbody.c:130:23: missed:   not inlinable: main/24 -> omp_get_wtime/32, function body not available
+v1nbody.c:128:7: missed:   not inlinable: main/24 -> move_particles/23, --param max-inline-insns-auto limit reached
+v1nbody.c:126:25: missed:   not inlinable: main/24 -> omp_get_wtime/32, function body not available
+v1nbody.c:120:92: missed:   not inlinable: main/24 -> fflush/31, function body not available
+v1nbody.c:120:3: missed:   not inlinable: main/24 -> printf/29, function body not available
+v1nbody.c:117:3: missed:   not inlinable: main/24 -> printf/29, function body not available
+v1nbody.c:113:3: missed:   not inlinable: main/24 -> init/22, --param max-inline-insns-auto limit reached
+v1nbody.c:110:11: missed:   not inlinable: main/24 -> aligned_alloc/28, function body not available
+v1nbody.c:109:11: missed:   not inlinable: main/24 -> aligned_alloc/28, function body not available
+v1nbody.c:108:11: missed:   not inlinable: main/24 -> aligned_alloc/28, function body not available
+v1nbody.c:107:10: missed:   not inlinable: main/24 -> aligned_alloc/28, function body not available
+v1nbody.c:106:10: missed:   not inlinable: main/24 -> aligned_alloc/28, function body not available
+v1nbody.c:105:10: missed:   not inlinable: main/24 -> aligned_alloc/28, function body not available
+v1nbody.c:104:19: missed:   not inlinable: main/24 -> malloc/27, function body not available
+/usr/include/stdlib.h:375:10: missed:   not inlinable: main/24 -> strtoll/36, function body not available
+v1nbody.c:66:27: missed:   not inlinable: move_particles/23 -> pow/26, function body not available
+v1nbody.c:40:23: missed:   not inlinable: init/22 -> rand/25, function body not available
+v1nbody.c:39:30: missed:   not inlinable: init/22 -> rand/25, function body not available
+v1nbody.c:38:23: missed:   not inlinable: init/22 -> rand/25, function body not available
+v1nbody.c:35:29: missed:   not inlinable: init/22 -> rand/25, function body not available
+v1nbody.c:34:22: missed:   not inlinable: init/22 -> rand/25, function body not available
+v1nbody.c:33:29: missed:   not inlinable: init/22 -> rand/25, function body not available
+v1nbody.c:29:21: missed:   not inlinable: init/22 -> rand/25, function body not available
+v1nbody.c:28:21: missed:   not inlinable: init/22 -> rand/25, function body not available
+Unit growth for small function inlining: 281->281 (0%)
+
+Inlined 1 calls, eliminated 0 functions
+
+v1nbody.c:28:21: missed: statement clobbers memory: _1 = rand ();
+v1nbody.c:25:21: missed: couldn't vectorize loop
+v1nbody.c:25:21: missed: not vectorized: control flow in loop.
+v1nbody.c:23:6: note: vectorized 0 loops in function.
+v1nbody.c:28:21: missed: statement clobbers memory: _1 = rand ();
+v1nbody.c:28:21: missed: statement clobbers memory: _1 = rand ();
+v1nbody.c:29:21: missed: statement clobbers memory: _2 = rand ();
+v1nbody.c:33:29: missed: statement clobbers memory: _3 = rand ();
+v1nbody.c:34:22: missed: statement clobbers memory: _10 = rand ();
+v1nbody.c:35:29: missed: statement clobbers memory: _15 = rand ();
+v1nbody.c:38:23: missed: statement clobbers memory: _21 = rand ();
+v1nbody.c:39:30: missed: statement clobbers memory: _26 = rand ();
+v1nbody.c:40:23: missed: statement clobbers memory: _32 = rand ();
+v1nbody.c:42:1: note: ***** Analysis failed with vector mode V4DI
+v1nbody.c:42:1: note: ***** Skipping vector mode V32QI, which would repeat the analysis for V4DI
+consider run-time aliasing test between *_50 and *_46
+consider run-time aliasing test between *_60 and *_57
+consider run-time aliasing test between *_68 and *_65
+consider run-time aliasing test between *_6 and *_30
+consider run-time aliasing test between *_11 and *_30
+consider run-time aliasing test between *_16 and *_30
+consider run-time aliasing test between *_3 and *_30
+consider run-time aliasing test between *_9 and *_30
+consider run-time aliasing test between *_14 and *_30
+consider run-time aliasing test between *_6 and *_35
+consider run-time aliasing test between *_11 and *_35
+consider run-time aliasing test between *_16 and *_35
+consider run-time aliasing test between *_3 and *_35
+consider run-time aliasing test between *_9 and *_35
+consider run-time aliasing test between *_14 and *_35
+consider run-time aliasing test between *_6 and *_40
+consider run-time aliasing test between *_11 and *_40
+consider run-time aliasing test between *_16 and *_40
+consider run-time aliasing test between *_3 and *_40
+consider run-time aliasing test between *_9 and *_40
+consider run-time aliasing test between *_14 and *_40
+consider run-time aliasing test between *_6 and *_35
+consider run-time aliasing test between *_11 and *_35
+consider run-time aliasing test between *_16 and *_35
+consider run-time aliasing test between *_3 and *_35
+consider run-time aliasing test between *_9 and *_35
+consider run-time aliasing test between *_14 and *_35
+consider run-time aliasing test between *_30 and *_35
+consider run-time aliasing test between *_6 and *_30
+consider run-time aliasing test between *_11 and *_30
+consider run-time aliasing test between *_16 and *_30
+consider run-time aliasing test between *_3 and *_30
+consider run-time aliasing test between *_9 and *_30
+consider run-time aliasing test between *_14 and *_30
+consider run-time aliasing test between *_30 and *_35
+consider run-time aliasing test between *_30 and *_35
+consider run-time aliasing test between *_6 and *_40
+consider run-time aliasing test between *_11 and *_40
+consider run-time aliasing test between *_16 and *_40
+consider run-time aliasing test between *_3 and *_40
+consider run-time aliasing test between *_9 and *_40
+consider run-time aliasing test between *_14 and *_40
+consider run-time aliasing test between *_30 and *_40
+consider run-time aliasing test between *_6 and *_30
+consider run-time aliasing test between *_11 and *_30
+consider run-time aliasing test between *_16 and *_30
+consider run-time aliasing test between *_3 and *_30
+consider run-time aliasing test between *_9 and *_30
+consider run-time aliasing test between *_14 and *_30
+consider run-time aliasing test between *_30 and *_40
+consider run-time aliasing test between *_30 and *_40
+consider run-time aliasing test between *_35 and *_40
+consider run-time aliasing test between *_6 and *_35
+consider run-time aliasing test between *_11 and *_35
+consider run-time aliasing test between *_16 and *_35
+consider run-time aliasing test between *_3 and *_35
+consider run-time aliasing test between *_9 and *_35
+consider run-time aliasing test between *_14 and *_35
+consider run-time aliasing test between *_35 and *_40
+consider run-time aliasing test between *_35 and *_40
+v1nbody.c:81:21: missed: couldn't vectorize loop
+v1nbody.c:81:21: missed: number of versioning for alias run-time tests exceeds 10 (--param vect-max-version-for-alias-checks)
+v1nbody.c:51:21: missed: couldn't vectorize loop
+v1nbody.c:62:33: missed: runtime alias check not supported for outer loop.
+v1nbody.c:59:25: optimized: loop vectorized using 32 byte vectors
+v1nbody.c:59:25: optimized: loop vectorized using 16 byte vectors
+v1nbody.c:45:6: note: vectorized 1 loops in function.
+v1nbody.c:59:25: optimized: loop with 2 iterations completely unrolled (header execution count 64349125)
+v1nbody.c:45:6: optimized: loop turned into non-loop; it never loops
+v1nbody.c:87:1: note: ***** Analysis failed with vector mode V4DI
+v1nbody.c:87:1: note: ***** Skipping vector mode V32QI, which would repeat the analysis for V4DI
+v1nbody.c:126:25: missed: statement clobbers memory: start_77 = omp_get_wtime ();
+v1nbody.c:123:21: missed: couldn't vectorize loop
+v1nbody.c:123:21: missed: not vectorized: control flow in loop.
+v1nbody.c:90:5: note: vectorized 0 loops in function.
+v1nbody.c:126:25: missed: statement clobbers memory: start_77 = omp_get_wtime ();
+/usr/include/stdlib.h:375:10: missed: statement clobbers memory: _88 = strtoll (_1, 0B, 10);
+v1nbody.c:104:19: missed: statement clobbers memory: p_52 = malloc (48);
+v1nbody.c:105:10: missed: statement clobbers memory: _3 = aligned_alloc (64, _2);
+v1nbody.c:106:10: missed: statement clobbers memory: _5 = aligned_alloc (64, _2);
+v1nbody.c:107:10: missed: statement clobbers memory: _7 = aligned_alloc (64, _2);
+v1nbody.c:108:11: missed: statement clobbers memory: _8 = aligned_alloc (64, _2);
+v1nbody.c:109:11: missed: statement clobbers memory: _9 = aligned_alloc (64, _2);
+v1nbody.c:110:11: missed: statement clobbers memory: _10 = aligned_alloc (64, _2);
+v1nbody.c:113:3: missed: statement clobbers memory: init (p_52, iftmp.1_44);
+v1nbody.c:117:3: missed: statement clobbers memory: printf ("\n\x1b[1mTotal memory size:\x1b[0m %llu B, %llu KiB, %llu MiB\n\n", s_66, _12, _11);
+v1nbody.c:120:3: missed: statement clobbers memory: printf ("\x1b[1m%5s %10s %10s %8s\x1b[0m\n", "Step", "Time, s", "Interact/s", "GFLOP/s");
+v1nbody.c:120:92: missed: statement clobbers memory: fflush (stdout.2_13);
+v1nbody.c:126:25: missed: statement clobbers memory: start_77 = omp_get_wtime ();
+v1nbody.c:128:7: missed: statement clobbers memory: move_particles (p_52, 9.99999977648258209228515625e-3, iftmp.1_44);
+v1nbody.c:130:23: missed: statement clobbers memory: end_80 = omp_get_wtime ();
+v1nbody.c:145:7: missed: statement clobbers memory: printf ("%5llu %10.3e %10.3e %8.1f %s\n", i_103, _46, _40, _43, "*");
+v1nbody.c:152:7: missed: statement clobbers memory: fflush (stdout.4_99);
+v1nbody.c:145:7: missed: statement clobbers memory: printf ("%5llu %10.3e %10.3e %8.1f %s\n", i_103, _24, _34, _25, "");
+v1nbody.c:152:7: missed: statement clobbers memory: fflush (stdout.4_35);
+v1nbody.c:159:3: missed: statement clobbers memory: __builtin_puts (&"-----------------------------------------------------"[0]);
+v1nbody.c:160:3: missed: statement clobbers memory: printf ("\x1b[1m%s %4s \x1b[42m%10.1lf +- %.1lf GFLOP/s\x1b[0m\n", "Average performance:", "", rate_70, drate_71);
+v1nbody.c:162:3: missed: statement clobbers memory: __builtin_puts (&"-----------------------------------------------------"[0]);
+v1nbody.c:165:3: missed: statement clobbers memory: free (p_52);
+v1nbody.c:165:3: note: ***** Analysis failed with vector mode V4DI
+v1nbody.c:165:3: note: ***** Skipping vector mode V32QI, which would repeat the analysis for V4DI
