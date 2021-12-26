@@ -56,14 +56,13 @@ void move_particles(particle_t *p, const f32 dt, u64 n)
   //
   for (u64 i = 0; i < n; i++)
     {
-      printf("%lu \n",i);
-      pxi = _mm256_load_ps(&p->x[i]);
-      pyi = _mm256_load_ps(&p->y[i]);
-      pzi = _mm256_load_ps(&p->z[i]);
+      pxi = _mm256_loadu_ps(&p->x[i]);
+      pyi = _mm256_loadu_ps(&p->y[i]);
+      pzi = _mm256_loadu_ps(&p->z[i]);
 
-      vxi = _mm256_load_ps(&p->vx[i]);
-      vyi = _mm256_load_ps(&p->vy[i]);
-      vzi = _mm256_load_ps(&p->vz[i]);
+      vxi = _mm256_loadu_ps(&p->vx[i]);
+      vyi = _mm256_loadu_ps(&p->vy[i]);
+      vzi = _mm256_loadu_ps(&p->vz[i]);
 
       //
       __m256 vfx = _mm256_setzero_ps();
@@ -72,9 +71,9 @@ void move_particles(particle_t *p, const f32 dt, u64 n)
       //23 floating-point operations
     for (u64 j = 0; j < n; j+= 8)
     {
-      pxj = _mm256_load_ps(&p->x[j]);
-      pyj = _mm256_load_ps(&p->y[j]);
-      pzj = _mm256_load_ps(&p->z[j]);
+      pxj = _mm256_loadu_ps(&p->x[j]);
+      pyj = _mm256_loadu_ps(&p->y[j]);
+      pzj = _mm256_loadu_ps(&p->z[j]);
       //Newton's law
       const __m256 dx = _mm256_sub_ps(pxj,pxi); //1
       const __m256 dy = _mm256_sub_ps(pyj,pyi); //2
@@ -100,13 +99,13 @@ void move_particles(particle_t *p, const f32 dt, u64 n)
   //3 floating-point operations
   for (u64 i = 0; i < n; i+=8)
     {
-      pxi = _mm256_load_ps(&p->x[i]);
-      pyi = _mm256_load_ps(&p->y[i]);
-      pzi = _mm256_load_ps(&p->z[i]);
+      pxi = _mm256_loadu_ps(&p->x[i]);
+      pyi = _mm256_loadu_ps(&p->y[i]);
+      pzi = _mm256_loadu_ps(&p->z[i]);
 
-      vxi = _mm256_load_ps(&p->vx[i]);
-      vyi = _mm256_load_ps(&p->vy[i]);
-      vzi = _mm256_load_ps(&p->vz[i]);
+      vxi = _mm256_loadu_ps(&p->vx[i]);
+      vyi = _mm256_loadu_ps(&p->vy[i]);
+      vzi = _mm256_loadu_ps(&p->vz[i]);
 
 
       vxi = _mm256_fmadd_ps(vdt,vxi,pxi);

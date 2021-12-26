@@ -7103,3 +7103,313 @@ v3nbody256.c:194:3: missed: statement clobbers memory: __builtin_puts (&"-------
 v3nbody256.c:197:3: missed: statement clobbers memory: free (p_52);
 v3nbody256.c:197:3: note: ***** Analysis failed with vector mode V4DI
 v3nbody256.c:197:3: note: ***** Skipping vector mode V32QI, which would repeat the analysis for V4DI
+v3nbody256.c:117:7: optimized:   Inlining _mm256_storeu_ps/924 into move_particles/5493 (always_inline).
+v3nbody256.c:116:7: optimized:   Inlining _mm256_storeu_ps/924 into move_particles/5493 (always_inline).
+v3nbody256.c:115:7: optimized:   Inlining _mm256_storeu_ps/924 into move_particles/5493 (always_inline).
+v3nbody256.c:114:13: optimized:   Inlining _mm256_fmadd_ps/5378 into move_particles/5493 (always_inline).
+v3nbody256.c:113:13: optimized:   Inlining _mm256_fmadd_ps/5378 into move_particles/5493 (always_inline).
+v3nbody256.c:112:13: optimized:   Inlining _mm256_fmadd_ps/5378 into move_particles/5493 (always_inline).
+v3nbody256.c:109:13: optimized:   Inlining _mm256_loadu_ps/923 into move_particles/5493 (always_inline).
+v3nbody256.c:108:13: optimized:   Inlining _mm256_loadu_ps/923 into move_particles/5493 (always_inline).
+v3nbody256.c:107:13: optimized:   Inlining _mm256_loadu_ps/923 into move_particles/5493 (always_inline).
+v3nbody256.c:105:13: optimized:   Inlining _mm256_loadu_ps/923 into move_particles/5493 (always_inline).
+v3nbody256.c:104:13: optimized:   Inlining _mm256_loadu_ps/923 into move_particles/5493 (always_inline).
+v3nbody256.c:103:13: optimized:   Inlining _mm256_loadu_ps/923 into move_particles/5493 (always_inline).
+v3nbody256.c:98:7: optimized:   Inlining _mm256_storeu_ps/924 into move_particles/5493 (always_inline).
+v3nbody256.c:97:7: optimized:   Inlining _mm256_storeu_ps/924 into move_particles/5493 (always_inline).
+v3nbody256.c:96:7: optimized:   Inlining _mm256_storeu_ps/924 into move_particles/5493 (always_inline).
+v3nbody256.c:94:13: optimized:   Inlining _mm256_fmadd_ps/5378 into move_particles/5493 (always_inline).
+v3nbody256.c:93:13: optimized:   Inlining _mm256_fmadd_ps/5378 into move_particles/5493 (always_inline).
+v3nbody256.c:92:13: optimized:   Inlining _mm256_fmadd_ps/5378 into move_particles/5493 (always_inline).
+v3nbody256.c:89:13: optimized:   Inlining _mm256_fmadd_ps/5378 into move_particles/5493 (always_inline).
+v3nbody256.c:88:13: optimized:   Inlining _mm256_fmadd_ps/5378 into move_particles/5493 (always_inline).
+v3nbody256.c:87:13: optimized:   Inlining _mm256_fmadd_ps/5378 into move_particles/5493 (always_inline).
+v3nbody256.c:84:33: optimized:   Inlining _mm256_mul_ps/859 into move_particles/5493 (always_inline).
+v3nbody256.c:84:33: optimized:   Inlining _mm256_mul_ps/859 into move_particles/5493 (always_inline).
+v3nbody256.c:83:20: optimized:   Inlining _mm256_rsqrt_ps/945 into move_particles/5493 (always_inline).
+v3nbody256.c:82:26: optimized:   Inlining _mm256_add_ps/836 into move_particles/5493 (always_inline).
+v3nbody256.c:82:26: optimized:   Inlining _mm256_add_ps/836 into move_particles/5493 (always_inline).
+v3nbody256.c:82:26: optimized:   Inlining _mm256_mul_ps/859 into move_particles/5493 (always_inline).
+v3nbody256.c:82:26: optimized:   Inlining _mm256_mul_ps/859 into move_particles/5493 (always_inline).
+v3nbody256.c:82:26: optimized:   Inlining _mm256_add_ps/836 into move_particles/5493 (always_inline).
+v3nbody256.c:82:26: optimized:   Inlining _mm256_mul_ps/859 into move_particles/5493 (always_inline).
+v3nbody256.c:81:25: optimized:   Inlining _mm256_sub_ps/865 into move_particles/5493 (always_inline).
+v3nbody256.c:80:25: optimized:   Inlining _mm256_sub_ps/865 into move_particles/5493 (always_inline).
+v3nbody256.c:79:25: optimized:   Inlining _mm256_sub_ps/865 into move_particles/5493 (always_inline).
+v3nbody256.c:77:13: optimized:   Inlining _mm256_loadu_ps/923 into move_particles/5493 (always_inline).
+v3nbody256.c:76:13: optimized:   Inlining _mm256_loadu_ps/923 into move_particles/5493 (always_inline).
+v3nbody256.c:75:13: optimized:   Inlining _mm256_loadu_ps/923 into move_particles/5493 (always_inline).
+v3nbody256.c:71:20: optimized:   Inlining _mm256_setzero_ps/975 into move_particles/5493 (always_inline).
+v3nbody256.c:70:20: optimized:   Inlining _mm256_setzero_ps/975 into move_particles/5493 (always_inline).
+v3nbody256.c:69:20: optimized:   Inlining _mm256_setzero_ps/975 into move_particles/5493 (always_inline).
+v3nbody256.c:66:13: optimized:   Inlining _mm256_loadu_ps/923 into move_particles/5493 (always_inline).
+v3nbody256.c:65:13: optimized:   Inlining _mm256_loadu_ps/923 into move_particles/5493 (always_inline).
+v3nbody256.c:64:13: optimized:   Inlining _mm256_loadu_ps/923 into move_particles/5493 (always_inline).
+v3nbody256.c:62:13: optimized:   Inlining _mm256_loadu_ps/923 into move_particles/5493 (always_inline).
+v3nbody256.c:61:13: optimized:   Inlining _mm256_loadu_ps/923 into move_particles/5493 (always_inline).
+v3nbody256.c:60:13: optimized:   Inlining _mm256_loadu_ps/923 into move_particles/5493 (always_inline).
+v3nbody256.c:54:16: optimized:   Inlining _mm256_load_ps/919 into move_particles/5493 (always_inline).
+v3nbody256.c:50:23: optimized:   Inlining _mm256_load_ps/919 into move_particles/5493 (always_inline).
+v3nbody256.c:125:30: optimized:   Inlining atoll/13 into main/5494 (always_inline).
+v3nbody256.c:160:7: note: Considering inline candidate move_particles/5493.
+v3nbody256.c:160:7: missed:   will not early inline: main/5494->move_particles/5493, call is cold and code would grow at least by 57
+v3nbody256.c:145:3: note: Considering inline candidate init/5492.
+v3nbody256.c:145:3: missed:   will not early inline: main/5494->init/5492, call is cold and code would grow at least by 49
+v3nbody256.c:197:3: missed:   not inlinable: main/5494 -> free/5506, function body not available
+v3nbody256.c:194:3: missed:   not inlinable: main/5494 -> __builtin_puts/5505, function body not available
+v3nbody256.c:192:3: missed:   not inlinable: main/5494 -> printf/5496, function body not available
+v3nbody256.c:191:3: missed:   not inlinable: main/5494 -> __builtin_puts/5505, function body not available
+v3nbody256.c:189:11: missed:   not inlinable: main/5494 -> sqrt/5504, function body not available
+v3nbody256.c:184:7: missed:   not inlinable: main/5494 -> fflush/5502, function body not available
+v3nbody256.c:177:7: missed:   not inlinable: main/5494 -> printf/5496, function body not available
+v3nbody256.c:162:23: missed:   not inlinable: main/5494 -> omp_get_wtime/5503, function body not available
+v3nbody256.c:160:7: missed:   not inlinable: main/5494 -> move_particles/5493, --param max-inline-insns-auto limit reached
+v3nbody256.c:158:25: missed:   not inlinable: main/5494 -> omp_get_wtime/5503, function body not available
+v3nbody256.c:152:92: missed:   not inlinable: main/5494 -> fflush/5502, function body not available
+v3nbody256.c:152:3: missed:   not inlinable: main/5494 -> printf/5496, function body not available
+v3nbody256.c:149:3: missed:   not inlinable: main/5494 -> printf/5496, function body not available
+v3nbody256.c:145:3: missed:   not inlinable: main/5494 -> init/5492, --param max-inline-insns-auto limit reached
+v3nbody256.c:142:11: missed:   not inlinable: main/5494 -> aligned_alloc/5500, function body not available
+v3nbody256.c:141:11: missed:   not inlinable: main/5494 -> aligned_alloc/5500, function body not available
+v3nbody256.c:140:11: missed:   not inlinable: main/5494 -> aligned_alloc/5500, function body not available
+v3nbody256.c:139:10: missed:   not inlinable: main/5494 -> aligned_alloc/5500, function body not available
+v3nbody256.c:138:10: missed:   not inlinable: main/5494 -> aligned_alloc/5500, function body not available
+v3nbody256.c:137:10: missed:   not inlinable: main/5494 -> aligned_alloc/5500, function body not available
+v3nbody256.c:136:19: missed:   not inlinable: main/5494 -> malloc/5499, function body not available
+/usr/include/stdlib.h:375:10: missed:   not inlinable: main/5494 -> strtoll/5507, function body not available
+/usr/lib/gcc/x86_64-pc-linux-gnu/11.1.0/include/fmaintrin.h:65:18: missed:   not inlinable: move_particles/5493 -> __builtin_ia32_vfmaddps256/5498, function body not available
+/usr/lib/gcc/x86_64-pc-linux-gnu/11.1.0/include/fmaintrin.h:65:18: missed:   not inlinable: move_particles/5493 -> __builtin_ia32_vfmaddps256/5498, function body not available
+/usr/lib/gcc/x86_64-pc-linux-gnu/11.1.0/include/fmaintrin.h:65:18: missed:   not inlinable: move_particles/5493 -> __builtin_ia32_vfmaddps256/5498, function body not available
+/usr/lib/gcc/x86_64-pc-linux-gnu/11.1.0/include/fmaintrin.h:65:18: missed:   not inlinable: move_particles/5493 -> __builtin_ia32_vfmaddps256/5498, function body not available
+/usr/lib/gcc/x86_64-pc-linux-gnu/11.1.0/include/fmaintrin.h:65:18: missed:   not inlinable: move_particles/5493 -> __builtin_ia32_vfmaddps256/5498, function body not available
+/usr/lib/gcc/x86_64-pc-linux-gnu/11.1.0/include/fmaintrin.h:65:18: missed:   not inlinable: move_particles/5493 -> __builtin_ia32_vfmaddps256/5498, function body not available
+/usr/lib/gcc/x86_64-pc-linux-gnu/11.1.0/include/avxintrin.h:1041:19: missed:   not inlinable: move_particles/5493 -> __builtin_ia32_rsqrtps256/5497, function body not available
+v3nbody256.c:59:7: missed:   not inlinable: move_particles/5493 -> printf/5496, function body not available
+v3nbody256.c:40:23: missed:   not inlinable: init/5492 -> rand/5495, function body not available
+v3nbody256.c:39:30: missed:   not inlinable: init/5492 -> rand/5495, function body not available
+v3nbody256.c:38:23: missed:   not inlinable: init/5492 -> rand/5495, function body not available
+v3nbody256.c:35:29: missed:   not inlinable: init/5492 -> rand/5495, function body not available
+v3nbody256.c:34:22: missed:   not inlinable: init/5492 -> rand/5495, function body not available
+v3nbody256.c:33:29: missed:   not inlinable: init/5492 -> rand/5495, function body not available
+v3nbody256.c:29:21: missed:   not inlinable: init/5492 -> rand/5495, function body not available
+v3nbody256.c:28:21: missed:   not inlinable: init/5492 -> rand/5495, function body not available
+Unit growth for small function inlining: 255->255 (0%)
+
+Inlined 48 calls, eliminated 0 functions
+
+v3nbody256.c:28:21: missed: statement clobbers memory: _1 = rand ();
+v3nbody256.c:25:21: missed: couldn't vectorize loop
+v3nbody256.c:25:21: missed: not vectorized: control flow in loop.
+v3nbody256.c:23:6: note: vectorized 0 loops in function.
+v3nbody256.c:28:21: missed: statement clobbers memory: _1 = rand ();
+v3nbody256.c:28:21: missed: statement clobbers memory: _1 = rand ();
+v3nbody256.c:29:21: missed: statement clobbers memory: _2 = rand ();
+v3nbody256.c:33:29: missed: statement clobbers memory: _3 = rand ();
+v3nbody256.c:34:22: missed: statement clobbers memory: _10 = rand ();
+v3nbody256.c:35:29: missed: statement clobbers memory: _15 = rand ();
+v3nbody256.c:38:23: missed: statement clobbers memory: _21 = rand ();
+v3nbody256.c:39:30: missed: statement clobbers memory: _26 = rand ();
+v3nbody256.c:40:23: missed: statement clobbers memory: _32 = rand ();
+v3nbody256.c:42:1: note: ***** Analysis failed with vector mode V4DI
+v3nbody256.c:42:1: note: ***** Skipping vector mode V32QI, which would repeat the analysis for V4DI
+v3nbody256.c:101:21: missed: couldn't vectorize loop
+v3nbody256.c:101:21: missed: not vectorized: unsupported data-type
+v3nbody256.c:57:21: missed: couldn't vectorize loop
+v3nbody256.c:59:7: missed: statement clobbers memory: printf ("%lu \n", i_76);
+v3nbody256.c:73:23: missed: couldn't vectorize loop
+/usr/lib/gcc/x86_64-pc-linux-gnu/11.1.0/include/avxintrin.h:905:10: missed: not vectorized: no vectype for stmt: _57 = MEM[(__m256_u * {ref-all})_15];
+ scalar_type: __m256_u
+v3nbody256.c:45:6: note: vectorized 0 loops in function.
+v3nbody256.c:59:7: missed: statement clobbers memory: printf ("%lu \n", i_76);
+v3nbody256.c:119:1: note: ***** Analysis failed with vector mode V8SF
+v3nbody256.c:119:1: note: ***** Skipping vector mode V32QI, which would repeat the analysis for V8SF
+v3nbody256.c:101:21: missed: missed loop optimization: niters analysis ends up with assumptions.
+v3nbody256.c:158:25: missed: statement clobbers memory: start_77 = omp_get_wtime ();
+v3nbody256.c:155:21: missed: couldn't vectorize loop
+v3nbody256.c:155:21: missed: not vectorized: control flow in loop.
+v3nbody256.c:122:5: note: vectorized 0 loops in function.
+v3nbody256.c:158:25: missed: statement clobbers memory: start_77 = omp_get_wtime ();
+/usr/include/stdlib.h:375:10: missed: statement clobbers memory: _88 = strtoll (_1, 0B, 10);
+v3nbody256.c:136:19: missed: statement clobbers memory: p_52 = malloc (48);
+v3nbody256.c:137:10: missed: statement clobbers memory: _3 = aligned_alloc (64, _2);
+v3nbody256.c:138:10: missed: statement clobbers memory: _5 = aligned_alloc (64, _2);
+v3nbody256.c:139:10: missed: statement clobbers memory: _7 = aligned_alloc (64, _2);
+v3nbody256.c:140:11: missed: statement clobbers memory: _8 = aligned_alloc (64, _2);
+v3nbody256.c:141:11: missed: statement clobbers memory: _9 = aligned_alloc (64, _2);
+v3nbody256.c:142:11: missed: statement clobbers memory: _10 = aligned_alloc (64, _2);
+v3nbody256.c:145:3: missed: statement clobbers memory: init (p_52, iftmp.1_44);
+v3nbody256.c:149:3: missed: statement clobbers memory: printf ("\n\x1b[1mTotal memory size:\x1b[0m %llu B, %llu KiB, %llu MiB\n\n", s_66, _12, _11);
+v3nbody256.c:152:3: missed: statement clobbers memory: printf ("\x1b[1m%5s %10s %10s %8s\x1b[0m\n", "Step", "Time, s", "Interact/s", "GFLOP/s");
+v3nbody256.c:152:92: missed: statement clobbers memory: fflush (stdout.2_13);
+v3nbody256.c:158:25: missed: statement clobbers memory: start_77 = omp_get_wtime ();
+v3nbody256.c:160:7: missed: statement clobbers memory: move_particles (p_52, 9.99999977648258209228515625e-3, iftmp.1_44);
+v3nbody256.c:162:23: missed: statement clobbers memory: end_80 = omp_get_wtime ();
+v3nbody256.c:177:7: missed: statement clobbers memory: printf ("%5llu %10.3e %10.3e %8.1f %s\n", i_103, _46, _40, _43, "*");
+v3nbody256.c:184:7: missed: statement clobbers memory: fflush (stdout.4_99);
+v3nbody256.c:177:7: missed: statement clobbers memory: printf ("%5llu %10.3e %10.3e %8.1f %s\n", i_103, _24, _34, _25, "");
+v3nbody256.c:184:7: missed: statement clobbers memory: fflush (stdout.4_35);
+v3nbody256.c:191:3: missed: statement clobbers memory: __builtin_puts (&"-----------------------------------------------------"[0]);
+v3nbody256.c:192:3: missed: statement clobbers memory: printf ("\x1b[1m%s %4s \x1b[42m%10.1lf +- %.1lf GFLOP/s\x1b[0m\n", "Average performance:", "", rate_70, drate_71);
+v3nbody256.c:194:3: missed: statement clobbers memory: __builtin_puts (&"-----------------------------------------------------"[0]);
+v3nbody256.c:197:3: missed: statement clobbers memory: free (p_52);
+v3nbody256.c:197:3: note: ***** Analysis failed with vector mode V4DI
+v3nbody256.c:197:3: note: ***** Skipping vector mode V32QI, which would repeat the analysis for V4DI
+v3nbody256.c:116:7: optimized:   Inlining _mm256_storeu_ps/924 into move_particles/5493 (always_inline).
+v3nbody256.c:115:7: optimized:   Inlining _mm256_storeu_ps/924 into move_particles/5493 (always_inline).
+v3nbody256.c:114:7: optimized:   Inlining _mm256_storeu_ps/924 into move_particles/5493 (always_inline).
+v3nbody256.c:113:13: optimized:   Inlining _mm256_fmadd_ps/5378 into move_particles/5493 (always_inline).
+v3nbody256.c:112:13: optimized:   Inlining _mm256_fmadd_ps/5378 into move_particles/5493 (always_inline).
+v3nbody256.c:111:13: optimized:   Inlining _mm256_fmadd_ps/5378 into move_particles/5493 (always_inline).
+v3nbody256.c:108:13: optimized:   Inlining _mm256_loadu_ps/923 into move_particles/5493 (always_inline).
+v3nbody256.c:107:13: optimized:   Inlining _mm256_loadu_ps/923 into move_particles/5493 (always_inline).
+v3nbody256.c:106:13: optimized:   Inlining _mm256_loadu_ps/923 into move_particles/5493 (always_inline).
+v3nbody256.c:104:13: optimized:   Inlining _mm256_loadu_ps/923 into move_particles/5493 (always_inline).
+v3nbody256.c:103:13: optimized:   Inlining _mm256_loadu_ps/923 into move_particles/5493 (always_inline).
+v3nbody256.c:102:13: optimized:   Inlining _mm256_loadu_ps/923 into move_particles/5493 (always_inline).
+v3nbody256.c:97:7: optimized:   Inlining _mm256_storeu_ps/924 into move_particles/5493 (always_inline).
+v3nbody256.c:96:7: optimized:   Inlining _mm256_storeu_ps/924 into move_particles/5493 (always_inline).
+v3nbody256.c:95:7: optimized:   Inlining _mm256_storeu_ps/924 into move_particles/5493 (always_inline).
+v3nbody256.c:93:13: optimized:   Inlining _mm256_fmadd_ps/5378 into move_particles/5493 (always_inline).
+v3nbody256.c:92:13: optimized:   Inlining _mm256_fmadd_ps/5378 into move_particles/5493 (always_inline).
+v3nbody256.c:91:13: optimized:   Inlining _mm256_fmadd_ps/5378 into move_particles/5493 (always_inline).
+v3nbody256.c:88:13: optimized:   Inlining _mm256_fmadd_ps/5378 into move_particles/5493 (always_inline).
+v3nbody256.c:87:13: optimized:   Inlining _mm256_fmadd_ps/5378 into move_particles/5493 (always_inline).
+v3nbody256.c:86:13: optimized:   Inlining _mm256_fmadd_ps/5378 into move_particles/5493 (always_inline).
+v3nbody256.c:83:33: optimized:   Inlining _mm256_mul_ps/859 into move_particles/5493 (always_inline).
+v3nbody256.c:83:33: optimized:   Inlining _mm256_mul_ps/859 into move_particles/5493 (always_inline).
+v3nbody256.c:82:20: optimized:   Inlining _mm256_rsqrt_ps/945 into move_particles/5493 (always_inline).
+v3nbody256.c:81:26: optimized:   Inlining _mm256_add_ps/836 into move_particles/5493 (always_inline).
+v3nbody256.c:81:26: optimized:   Inlining _mm256_add_ps/836 into move_particles/5493 (always_inline).
+v3nbody256.c:81:26: optimized:   Inlining _mm256_mul_ps/859 into move_particles/5493 (always_inline).
+v3nbody256.c:81:26: optimized:   Inlining _mm256_mul_ps/859 into move_particles/5493 (always_inline).
+v3nbody256.c:81:26: optimized:   Inlining _mm256_add_ps/836 into move_particles/5493 (always_inline).
+v3nbody256.c:81:26: optimized:   Inlining _mm256_mul_ps/859 into move_particles/5493 (always_inline).
+v3nbody256.c:80:25: optimized:   Inlining _mm256_sub_ps/865 into move_particles/5493 (always_inline).
+v3nbody256.c:79:25: optimized:   Inlining _mm256_sub_ps/865 into move_particles/5493 (always_inline).
+v3nbody256.c:78:25: optimized:   Inlining _mm256_sub_ps/865 into move_particles/5493 (always_inline).
+v3nbody256.c:76:13: optimized:   Inlining _mm256_loadu_ps/923 into move_particles/5493 (always_inline).
+v3nbody256.c:75:13: optimized:   Inlining _mm256_loadu_ps/923 into move_particles/5493 (always_inline).
+v3nbody256.c:74:13: optimized:   Inlining _mm256_loadu_ps/923 into move_particles/5493 (always_inline).
+v3nbody256.c:70:20: optimized:   Inlining _mm256_setzero_ps/975 into move_particles/5493 (always_inline).
+v3nbody256.c:69:20: optimized:   Inlining _mm256_setzero_ps/975 into move_particles/5493 (always_inline).
+v3nbody256.c:68:20: optimized:   Inlining _mm256_setzero_ps/975 into move_particles/5493 (always_inline).
+v3nbody256.c:65:13: optimized:   Inlining _mm256_loadu_ps/923 into move_particles/5493 (always_inline).
+v3nbody256.c:64:13: optimized:   Inlining _mm256_loadu_ps/923 into move_particles/5493 (always_inline).
+v3nbody256.c:63:13: optimized:   Inlining _mm256_loadu_ps/923 into move_particles/5493 (always_inline).
+v3nbody256.c:61:13: optimized:   Inlining _mm256_loadu_ps/923 into move_particles/5493 (always_inline).
+v3nbody256.c:60:13: optimized:   Inlining _mm256_loadu_ps/923 into move_particles/5493 (always_inline).
+v3nbody256.c:59:13: optimized:   Inlining _mm256_loadu_ps/923 into move_particles/5493 (always_inline).
+v3nbody256.c:54:16: optimized:   Inlining _mm256_load_ps/919 into move_particles/5493 (always_inline).
+v3nbody256.c:50:23: optimized:   Inlining _mm256_load_ps/919 into move_particles/5493 (always_inline).
+v3nbody256.c:124:30: optimized:   Inlining atoll/13 into main/5494 (always_inline).
+v3nbody256.c:159:7: note: Considering inline candidate move_particles/5493.
+v3nbody256.c:159:7: missed:   will not early inline: main/5494->move_particles/5493, call is cold and code would grow at least by 54
+v3nbody256.c:144:3: note: Considering inline candidate init/5492.
+v3nbody256.c:144:3: missed:   will not early inline: main/5494->init/5492, call is cold and code would grow at least by 49
+v3nbody256.c:196:3: missed:   not inlinable: main/5494 -> free/5506, function body not available
+v3nbody256.c:193:3: missed:   not inlinable: main/5494 -> __builtin_puts/5505, function body not available
+v3nbody256.c:191:3: missed:   not inlinable: main/5494 -> printf/5500, function body not available
+v3nbody256.c:190:3: missed:   not inlinable: main/5494 -> __builtin_puts/5505, function body not available
+v3nbody256.c:188:11: missed:   not inlinable: main/5494 -> sqrt/5504, function body not available
+v3nbody256.c:183:7: missed:   not inlinable: main/5494 -> fflush/5502, function body not available
+v3nbody256.c:176:7: missed:   not inlinable: main/5494 -> printf/5500, function body not available
+v3nbody256.c:161:23: missed:   not inlinable: main/5494 -> omp_get_wtime/5503, function body not available
+v3nbody256.c:159:7: missed:   not inlinable: main/5494 -> move_particles/5493, --param max-inline-insns-auto limit reached
+v3nbody256.c:157:25: missed:   not inlinable: main/5494 -> omp_get_wtime/5503, function body not available
+v3nbody256.c:151:92: missed:   not inlinable: main/5494 -> fflush/5502, function body not available
+v3nbody256.c:151:3: missed:   not inlinable: main/5494 -> printf/5500, function body not available
+v3nbody256.c:148:3: missed:   not inlinable: main/5494 -> printf/5500, function body not available
+v3nbody256.c:144:3: missed:   not inlinable: main/5494 -> init/5492, --param max-inline-insns-auto limit reached
+v3nbody256.c:141:11: missed:   not inlinable: main/5494 -> aligned_alloc/5499, function body not available
+v3nbody256.c:140:11: missed:   not inlinable: main/5494 -> aligned_alloc/5499, function body not available
+v3nbody256.c:139:11: missed:   not inlinable: main/5494 -> aligned_alloc/5499, function body not available
+v3nbody256.c:138:10: missed:   not inlinable: main/5494 -> aligned_alloc/5499, function body not available
+v3nbody256.c:137:10: missed:   not inlinable: main/5494 -> aligned_alloc/5499, function body not available
+v3nbody256.c:136:10: missed:   not inlinable: main/5494 -> aligned_alloc/5499, function body not available
+v3nbody256.c:135:19: missed:   not inlinable: main/5494 -> malloc/5498, function body not available
+/usr/include/stdlib.h:375:10: missed:   not inlinable: main/5494 -> strtoll/5507, function body not available
+/usr/lib/gcc/x86_64-pc-linux-gnu/11.1.0/include/fmaintrin.h:65:18: missed:   not inlinable: move_particles/5493 -> __builtin_ia32_vfmaddps256/5497, function body not available
+/usr/lib/gcc/x86_64-pc-linux-gnu/11.1.0/include/fmaintrin.h:65:18: missed:   not inlinable: move_particles/5493 -> __builtin_ia32_vfmaddps256/5497, function body not available
+/usr/lib/gcc/x86_64-pc-linux-gnu/11.1.0/include/fmaintrin.h:65:18: missed:   not inlinable: move_particles/5493 -> __builtin_ia32_vfmaddps256/5497, function body not available
+/usr/lib/gcc/x86_64-pc-linux-gnu/11.1.0/include/fmaintrin.h:65:18: missed:   not inlinable: move_particles/5493 -> __builtin_ia32_vfmaddps256/5497, function body not available
+/usr/lib/gcc/x86_64-pc-linux-gnu/11.1.0/include/fmaintrin.h:65:18: missed:   not inlinable: move_particles/5493 -> __builtin_ia32_vfmaddps256/5497, function body not available
+/usr/lib/gcc/x86_64-pc-linux-gnu/11.1.0/include/fmaintrin.h:65:18: missed:   not inlinable: move_particles/5493 -> __builtin_ia32_vfmaddps256/5497, function body not available
+/usr/lib/gcc/x86_64-pc-linux-gnu/11.1.0/include/avxintrin.h:1041:19: missed:   not inlinable: move_particles/5493 -> __builtin_ia32_rsqrtps256/5496, function body not available
+v3nbody256.c:40:23: missed:   not inlinable: init/5492 -> rand/5495, function body not available
+v3nbody256.c:39:30: missed:   not inlinable: init/5492 -> rand/5495, function body not available
+v3nbody256.c:38:23: missed:   not inlinable: init/5492 -> rand/5495, function body not available
+v3nbody256.c:35:29: missed:   not inlinable: init/5492 -> rand/5495, function body not available
+v3nbody256.c:34:22: missed:   not inlinable: init/5492 -> rand/5495, function body not available
+v3nbody256.c:33:29: missed:   not inlinable: init/5492 -> rand/5495, function body not available
+v3nbody256.c:29:21: missed:   not inlinable: init/5492 -> rand/5495, function body not available
+v3nbody256.c:28:21: missed:   not inlinable: init/5492 -> rand/5495, function body not available
+Unit growth for small function inlining: 252->252 (0%)
+
+Inlined 48 calls, eliminated 0 functions
+
+v3nbody256.c:28:21: missed: statement clobbers memory: _1 = rand ();
+v3nbody256.c:25:21: missed: couldn't vectorize loop
+v3nbody256.c:25:21: missed: not vectorized: control flow in loop.
+v3nbody256.c:23:6: note: vectorized 0 loops in function.
+v3nbody256.c:28:21: missed: statement clobbers memory: _1 = rand ();
+v3nbody256.c:28:21: missed: statement clobbers memory: _1 = rand ();
+v3nbody256.c:29:21: missed: statement clobbers memory: _2 = rand ();
+v3nbody256.c:33:29: missed: statement clobbers memory: _3 = rand ();
+v3nbody256.c:34:22: missed: statement clobbers memory: _10 = rand ();
+v3nbody256.c:35:29: missed: statement clobbers memory: _15 = rand ();
+v3nbody256.c:38:23: missed: statement clobbers memory: _21 = rand ();
+v3nbody256.c:39:30: missed: statement clobbers memory: _26 = rand ();
+v3nbody256.c:40:23: missed: statement clobbers memory: _32 = rand ();
+v3nbody256.c:42:1: note: ***** Analysis failed with vector mode V4DI
+v3nbody256.c:42:1: note: ***** Skipping vector mode V32QI, which would repeat the analysis for V4DI
+/usr/lib/gcc/x86_64-pc-linux-gnu/11.1.0/include/avxintrin.h:905:10: missed: failed: evolution of base is not affine.
+/usr/lib/gcc/x86_64-pc-linux-gnu/11.1.0/include/avxintrin.h:905:10: missed: failed: evolution of base is not affine.
+/usr/lib/gcc/x86_64-pc-linux-gnu/11.1.0/include/avxintrin.h:905:10: missed: failed: evolution of base is not affine.
+/usr/lib/gcc/x86_64-pc-linux-gnu/11.1.0/include/avxintrin.h:905:10: missed: failed: evolution of base is not affine.
+/usr/lib/gcc/x86_64-pc-linux-gnu/11.1.0/include/avxintrin.h:905:10: missed: failed: evolution of base is not affine.
+/usr/lib/gcc/x86_64-pc-linux-gnu/11.1.0/include/avxintrin.h:905:10: missed: failed: evolution of base is not affine.
+/usr/lib/gcc/x86_64-pc-linux-gnu/11.1.0/include/avxintrin.h:911:20: missed: failed: evolution of base is not affine.
+/usr/lib/gcc/x86_64-pc-linux-gnu/11.1.0/include/avxintrin.h:911:20: missed: failed: evolution of base is not affine.
+/usr/lib/gcc/x86_64-pc-linux-gnu/11.1.0/include/avxintrin.h:911:20: missed: failed: evolution of base is not affine.
+v3nbody256.c:100:21: missed: couldn't vectorize loop
+v3nbody256.c:100:21: missed: not vectorized: unsupported data-type
+v3nbody256.c:57:21: missed: couldn't vectorize loop
+/usr/lib/gcc/x86_64-pc-linux-gnu/11.1.0/include/avxintrin.h:905:10: missed: not vectorized: no vectype for stmt: _40 = MEM[(__m256_u * {ref-all})_3];
+ scalar_type: __m256_u
+v3nbody256.c:72:23: missed: couldn't vectorize loop
+/usr/lib/gcc/x86_64-pc-linux-gnu/11.1.0/include/avxintrin.h:905:10: missed: not vectorized: no vectype for stmt: _56 = MEM[(__m256_u * {ref-all})_15];
+ scalar_type: __m256_u
+v3nbody256.c:45:6: note: vectorized 0 loops in function.
+v3nbody256.c:118:1: note: ***** Analysis failed with vector mode V8SF
+v3nbody256.c:118:1: note: ***** Skipping vector mode V32QI, which would repeat the analysis for V8SF
+v3nbody256.c:100:21: missed: missed loop optimization: niters analysis ends up with assumptions.
+v3nbody256.c:157:25: missed: statement clobbers memory: start_77 = omp_get_wtime ();
+v3nbody256.c:154:21: missed: couldn't vectorize loop
+v3nbody256.c:154:21: missed: not vectorized: control flow in loop.
+v3nbody256.c:121:5: note: vectorized 0 loops in function.
+v3nbody256.c:157:25: missed: statement clobbers memory: start_77 = omp_get_wtime ();
+/usr/include/stdlib.h:375:10: missed: statement clobbers memory: _88 = strtoll (_1, 0B, 10);
+v3nbody256.c:135:19: missed: statement clobbers memory: p_52 = malloc (48);
+v3nbody256.c:136:10: missed: statement clobbers memory: _3 = aligned_alloc (64, _2);
+v3nbody256.c:137:10: missed: statement clobbers memory: _5 = aligned_alloc (64, _2);
+v3nbody256.c:138:10: missed: statement clobbers memory: _7 = aligned_alloc (64, _2);
+v3nbody256.c:139:11: missed: statement clobbers memory: _8 = aligned_alloc (64, _2);
+v3nbody256.c:140:11: missed: statement clobbers memory: _9 = aligned_alloc (64, _2);
+v3nbody256.c:141:11: missed: statement clobbers memory: _10 = aligned_alloc (64, _2);
+v3nbody256.c:144:3: missed: statement clobbers memory: init (p_52, iftmp.1_44);
+v3nbody256.c:148:3: missed: statement clobbers memory: printf ("\n\x1b[1mTotal memory size:\x1b[0m %llu B, %llu KiB, %llu MiB\n\n", s_66, _12, _11);
+v3nbody256.c:151:3: missed: statement clobbers memory: printf ("\x1b[1m%5s %10s %10s %8s\x1b[0m\n", "Step", "Time, s", "Interact/s", "GFLOP/s");
+v3nbody256.c:151:92: missed: statement clobbers memory: fflush (stdout.2_13);
+v3nbody256.c:157:25: missed: statement clobbers memory: start_77 = omp_get_wtime ();
+v3nbody256.c:159:7: missed: statement clobbers memory: move_particles (p_52, 9.99999977648258209228515625e-3, iftmp.1_44);
+v3nbody256.c:161:23: missed: statement clobbers memory: end_80 = omp_get_wtime ();
+v3nbody256.c:176:7: missed: statement clobbers memory: printf ("%5llu %10.3e %10.3e %8.1f %s\n", i_103, _46, _40, _43, "*");
+v3nbody256.c:183:7: missed: statement clobbers memory: fflush (stdout.4_99);
+v3nbody256.c:176:7: missed: statement clobbers memory: printf ("%5llu %10.3e %10.3e %8.1f %s\n", i_103, _24, _34, _25, "");
+v3nbody256.c:183:7: missed: statement clobbers memory: fflush (stdout.4_35);
+v3nbody256.c:190:3: missed: statement clobbers memory: __builtin_puts (&"-----------------------------------------------------"[0]);
+v3nbody256.c:191:3: missed: statement clobbers memory: printf ("\x1b[1m%s %4s \x1b[42m%10.1lf +- %.1lf GFLOP/s\x1b[0m\n", "Average performance:", "", rate_70, drate_71);
+v3nbody256.c:193:3: missed: statement clobbers memory: __builtin_puts (&"-----------------------------------------------------"[0]);
+v3nbody256.c:196:3: missed: statement clobbers memory: free (p_52);
+v3nbody256.c:196:3: note: ***** Analysis failed with vector mode V4DI
+v3nbody256.c:196:3: note: ***** Skipping vector mode V32QI, which would repeat the analysis for V4DI

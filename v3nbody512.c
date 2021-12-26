@@ -49,46 +49,77 @@ void move_particles(particle_t *p, const f32 dt, u64 n)
   //
   const f32 softening = 1e-20;
 
+  __m512 vsoftening = _mm512_load_ps(&softening);
+
+  __m512 pxi, pyi, pzi, pxj, pyj, pzj, vxi, vyi, vzi;
+
+  __m512 vdt = _mm512_load_ps(&dt);
+
   //
   for (u64 i = 0; i < n; i++)
     {
-      //
-      f32 fx = 0.0;
-      f32 fy = 0.0;
-      f32 fz = 0.0;
+      pxi = _mm512_loadu_ps(&p->x[i]);
+      pyi = _mm512_loadu_ps(&p->y[i]);
+      pzi = _mm512_loadu_ps(&p->z[i]);
 
+      vxi = _mm512_loadu_ps(&p->vx[i]);
+      vyi = _mm512_loadu_ps(&p->vy[i]);
+      vzi = _mm512_loadu_ps(&p->vz[i]);
+
+      //
+      __m512 vfx = _mm512_setzero_ps();
+      __m512 vfy = _mm512_setzero_ps();
+      __m512 vfz = _mm512_setzero_ps();
       //23 floating-point operations
-      f32 pxi = p->x[i];
-      f32 pyi = p->y[i];
-      f32 pzi = p->z[i];
-    for (u64 j = 0; j < n; j++)
+    for (u64 j = 0; j < n; j+= 16)
     {
+      pxj = _mm512_loadu_ps(&p->x[j]);
+      pyj = _mm512_loadu_ps(&p->y[j]);
+      pzj = _mm512_loadu_ps(&p->z[j]);
       //Newton's law
-      const f32 dx = p->x[j] - pxi; //1
-      const f32 dy = p->y[j] - pyi; //2
-      const f32 dz = p->z[j] - pzi; //3
-      const f32 d_2 = (dx * dx) + (dy * dy) + (dz * dz) + softening; //9
-      f32 tmp = sqrt(d_2);  //10
-      const f32 d_3_over_2 = tmp * tmp * tmp; //12
+      const __m512 dx = _mm512_sub_ps(pxj,pxi); //1
+      const __m512 dy = _mm512_sub_ps(pyj,pyi); //2
+      const __m512 dz = _mm512_sub_ps(pzj,pzi); //3
+      const __m512 d_2 = _mm512_add_ps(_mm512_add_ps(_mm512_mul_ps(dx,dx),_mm512_mul_ps(dy,dy)),_mm512_add_ps(_mm512_mul_ps(dz,dz),vsoftening)); //9
+      #if __AVX512ER__
+          __m512 tmp = _mm512_rsqrt28_ps(d_2);
+        #else
+          __m512 tmp = _mm512_rsqrt14_ps(d_2);
+        #endif  //10
+      const __m512 d_3_over_2 = _mm512_mul_ps(_mm512_mul_ps(tmp,tmp),tmp); //12
 
       //Net force
-      fx += dx / d_3_over_2; //14
-      fy += dy / d_3_over_2; //16
-      fz += dz / d_3_over_2; //18
+      vfx = _mm512_fmadd_ps(dx,d_3_over_2,vfx); //14
+      vfy = _mm512_fmadd_ps(dy,d_3_over_2,vfy); //16
+      vfz = _mm512_fmadd_ps(dz,d_3_over_2,vfz); //18
     }
-
       //
-      p->vx[i] += dt * fx; //20
-      p->vy[i] += dt * fy; //22
-      p->vz[i] += dt * fz; //24
-    }
-
+      vxi = _mm512_fmadd_ps(vdt,vfx,vxi); //20
+      vyi = _mm512_fmadd_ps(vdt,vfy,vyi); //22
+      vzi = _mm512_fmadd_ps(vdt,vfz,vzi); //24
+       
+      _mm512_storeu_ps(&p->vx[i],vxi);
+      _mm512_storeu_ps(&p->vy[i],vyi);
+      _mm512_storeu_ps(&p->vz[i],vzi);
+  }
   //3 floating-point operations
-  for (u64 i = 0; i < n; i++)
+  for (u64 i = 0; i < n; i+=8)
     {
-      p->x[i] += dt * p->vx[i];
-      p->y[i] += dt * p->vy[i];
-      p->z[i] += dt * p->vz[i];
+      pxi = _mm512_loadu_ps(&p->x[i]);
+      pyi = _mm512_loadu_ps(&p->y[i]);
+      pzi = _mm512_loadu_ps(&p->z[i]);
+
+      vxi = _mm512_loadu_ps(&p->vx[i]);
+      vyi = _mm512_loadu_ps(&p->vy[i]);
+      vzi = _mm512_loadu_ps(&p->vz[i]);
+
+
+      vxi = _mm512_fmadd_ps(vdt,vxi,pxi);
+      vyi = _mm512_fmadd_ps(vdt,vyi,pyi);
+      vzi = _mm512_fmadd_ps(vdt,vzi,pzi);
+      _mm512_storeu_ps(&p->x[i],pxi);
+      _mm512_storeu_ps(&p->y[i],pyi);
+      _mm512_storeu_ps(&p->z[i],pzi); 
     }
 }
 
@@ -142,18 +173,18 @@ int main(int argc, char **argv)
       const f32 h2 = (24.0 * h1 + 3.0 * (f32)n) * 1e-9;
       
       if (i >= warmup)
-	{
-	  rate += h2 / (end - start);
-	  drate += (h2 * h2) / ((end - start) * (end - start));
-	}
+  {
+    rate += h2 / (end - start);
+    drate += (h2 * h2) / ((end - start) * (end - start));
+  }
 
       //
       printf("%5llu %10.3e %10.3e %8.1f %s\n",
-	     i,
-	     (end - start),
-	     h1 / (end - start),
-	     h2 / (end - start),
-	     (i < warmup) ? "*" : "");
+       i,
+       (end - start),
+       h1 / (end - start),
+       h2 / (end - start),
+       (i < warmup) ? "*" : "");
       
       fflush(stdout);
     }
@@ -164,7 +195,7 @@ int main(int argc, char **argv)
 
   printf("-----------------------------------------------------\n");
   printf("\033[1m%s %4s \033[42m%10.1lf +- %.1lf GFLOP/s\033[0m\n",
-	 "Average performance:", "", rate, drate);
+   "Average performance:", "", rate, drate);
   printf("-----------------------------------------------------\n");
   
   //
