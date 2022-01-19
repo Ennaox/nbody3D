@@ -47,16 +47,46 @@ void init(particle_t *p, u64 n)
 void move_particles(particle_t *p, const f32 dt, u64 n)
 {
   //
-  const f32 softening = 1e-20;
-
-  __m512 vsoftening = _mm512_load_ps(&softening);
+  __m512 vsoftening;
+  vsoftening[0] = 1e-20;
+  vsoftening[1] = 1e-20;
+  vsoftening[2] = 1e-20;
+  vsoftening[3] = 1e-20;
+  vsoftening[4] = 1e-20;
+  vsoftening[5] = 1e-20;
+  vsoftening[6] = 1e-20;
+  vsoftening[7] = 1e-20;
+  vsoftening[8] = 1e-20;
+  vsoftening[9] = 1e-20;
+  vsoftening[10] = 1e-20;
+  vsoftening[11] = 1e-20;
+  vsoftening[12] = 1e-20;
+  vsoftening[13] = 1e-20;
+  vsoftening[14] = 1e-20;
+  vsoftening[15] = 1e-20;
 
   __m512 pxi, pyi, pzi, pxj, pyj, pzj, vxi, vyi, vzi;
 
-  __m512 vdt = _mm512_load_ps(&dt);
+  __m512 vdt;
+  vdt[0] = dt;
+  vdt[1] = dt;
+  vdt[2] = dt;
+  vdt[3] = dt;
+  vdt[4] = dt;
+  vdt[5] = dt;
+  vdt[6] = dt;
+  vdt[7] = dt;
+  vdt[8] = dt;
+  vdt[9] = dt;
+  vdt[10] = dt;
+  vdt[11] = dt;
+  vdt[12] = dt;
+  vdt[13] = dt;
+  vdt[14] = dt;
+  vdt[15] = dt;
 
   //
-  for (u64 i = 0; i < n; i++)
+  for (u64 i = 0; i < n; i+=16)
     {
       pxi = _mm512_loadu_ps(&p->x[i]);
       pyi = _mm512_loadu_ps(&p->y[i]);
@@ -71,7 +101,7 @@ void move_particles(particle_t *p, const f32 dt, u64 n)
       __m512 vfy = _mm512_setzero_ps();
       __m512 vfz = _mm512_setzero_ps();
       //23 floating-point operations
-    for (u64 j = 0; j < n; j+= 16)
+    for (u64 j = 0; j < n; j++)
     {
       pxj = _mm512_loadu_ps(&p->x[j]);
       pyj = _mm512_loadu_ps(&p->y[j]);
@@ -114,9 +144,9 @@ void move_particles(particle_t *p, const f32 dt, u64 n)
       vzi = _mm512_loadu_ps(&p->vz[i]);
 
 
-      vxi = _mm512_fmadd_ps(vdt,vxi,pxi);
-      vyi = _mm512_fmadd_ps(vdt,vyi,pyi);
-      vzi = _mm512_fmadd_ps(vdt,vzi,pzi);
+      pxi = _mm512_fmadd_ps(vdt,vxi,pxi);
+      pyi = _mm512_fmadd_ps(vdt,vyi,pyi);
+      pzi = _mm512_fmadd_ps(vdt,vzi,pzi);
       _mm512_storeu_ps(&p->x[i],pxi);
       _mm512_storeu_ps(&p->y[i],pyi);
       _mm512_storeu_ps(&p->z[i],pzi); 
@@ -205,9 +235,11 @@ int main(int argc, char **argv)
   return 0;
 }
 
-#endif
+#else
 
 int main()
 {
   printf("No AVX512 on this computer\n");
 }
+
+#endif

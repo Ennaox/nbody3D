@@ -1,9 +1,11 @@
+//PAS FINI
+
 //
 #include <omp.h>
 #include <math.h>
 #include <stdio.h>
 #include <stdlib.h>
-#include <immintrin.h>
+
 //
 typedef float              f32;
 typedef double             f64;
@@ -45,91 +47,72 @@ void init(particle_t *p, u64 n)
 void move_particles(particle_t *p, const f32 dt, u64 n)
 {
   //
-  __m256 vsoftening;
-  vsoftening[0] = 1e-20;
-  vsoftening[1] = 1e-20;
-  vsoftening[2] = 1e-20;
-  vsoftening[3] = 1e-20;
-  vsoftening[4] = 1e-20;
-  vsoftening[5] = 1e-20;
-  vsoftening[6] = 1e-20;
-  vsoftening[7] = 1e-20;
+  const f32 softening = 1e-20;
 
-  __m256 pxi, pyi, pzi, pxj, pyj, pzj, vxi, vyi, vzi;
+  f32* restrict fx = aligned_alloc(ALIGN,sizeof(f32) * 8);
+  f32* restrict fy = aligned_alloc(ALIGN,sizeof(f32) * 8);
+  f32* restrict fz = aligned_alloc(ALIGN,sizeof(f32) * 8);
 
-  __m256 vdt;
-  vdt[0] = dt;
-  vdt[1] = dt;
-  vdt[2] = dt;
-  vdt[3] = dt;
-  vdt[4] = dt;
-  vdt[5] = dt;
-  vdt[6] = dt;
-  vdt[7] = dt;
+  f32* restrict pxi = aligned_alloc(ALIGN,sizeof(f32) * 8);
+  f32* restrict pyi = aligned_alloc(ALIGN,sizeof(f32) * 8);
+  f32* restrict pzi = aligned_alloc(ALIGN,sizeof(f32) * 8);  
 
+  f32* restrict dx = aligned_alloc(ALIGN,sizeof(f32) * 8);
+  f32* restrict dy = aligned_alloc(ALIGN,sizeof(f32) * 8);
+  f32* restrict dz = aligned_alloc(ALIGN,sizeof(f32) * 8);
   //
   for (u64 i = 0; i < n; i+=8)
     {
-      pxi = _mm256_loadu_ps(&p->x[i]);
-      pyi = _mm256_loadu_ps(&p->y[i]);
-      pzi = _mm256_loadu_ps(&p->z[i]);
-
-      vxi = _mm256_loadu_ps(&p->vx[i]);
-      vyi = _mm256_loadu_ps(&p->vy[i]);
-      vzi = _mm256_loadu_ps(&p->vz[i]);
-
       //
-      __m256 vfx = _mm256_setzero_ps();
-      __m256 vfy = _mm256_setzero_ps();
-      __m256 vfz = _mm256_setzero_ps();
+
+      fx[0] = 0.0; fy[0] = 0.0; fz[0] = 0.0;
+      fx[1] = 0.0; fy[1] = 0.0; fz[1] = 0.0;
+      fx[2] = 0.0; fy[2] = 0.0; fz[2] = 0.0;
+      fx[3] = 0.0; fy[3] = 0.0; fz[3] = 0.0;
+      fx[4] = 0.0; fy[4] = 0.0; fz[4] = 0.0;
+      fx[5] = 0.0; fy[5] = 0.0; fz[5] = 0.0;
+      fx[6] = 0.0; fy[6] = 0.0; fz[6] = 0.0;
+      fx[7] = 0.0; fy[7] = 0.0; fz[7] = 0.0;
+
       //23 floating-point operations
-    for (u64 j = 0; j < n; j++)
-    {
-      pxj = _mm256_loadu_ps(&p->x[j]);
-      pyj = _mm256_loadu_ps(&p->y[j]);
-      pzj = _mm256_loadu_ps(&p->z[j]);
-      //Newton's law
-      const __m256 dx = _mm256_sub_ps(pxj,pxi); //1
-      const __m256 dy = _mm256_sub_ps(pyj,pyi); //2
-      const __m256 dz = _mm256_sub_ps(pzj,pzi); //3
-      const __m256 d_2 = _mm256_add_ps(_mm256_add_ps(_mm256_mul_ps(dx,dx),_mm256_mul_ps(dy,dy)),_mm256_add_ps(_mm256_mul_ps(dz,dz),vsoftening)); //9
-      __m256 tmp = _mm256_rsqrt_ps(d_2);  //10
-      const __m256 d_3_over_2 = _mm256_mul_ps(_mm256_mul_ps(tmp,tmp),tmp); //12
+      pxi[0] = p->x[i]; pyi[0] = p->y[i]; pzi[0] = p->z[i];
+      pxi[1] = p->x[i+1]; pyi[1] = p->y[i+1]; pzi[1] = p->z[i+1];
+      pxi[2] = p->x[i+2]; pyi[2] = p->y[i+2]; pzi[2] = p->z[i+2];
+      pxi[3] = p->x[i+3]; pyi[3] = p->y[i+3]; pzi[3] = p->z[i+3];
+      pxi[4] = p->x[i+4]; pyi[4] = p->y[i+4]; pzi[4] = p->z[i+4];
+      pxi[5] = p->x[i+5]; pyi[5] = p->y[i+5]; pzi[5] = p->z[i+5];
+      pxi[6] = p->x[i+6]; pyi[6] = p->y[i+6]; pzi[6] = p->z[i+6];
+      pxi[7] = p->x[i+7]; pyi[7] = p->y[i+7]; pzi[7] = p->z[i+7];
 
-      //Net force
-      vfx = _mm256_fmadd_ps(dx,d_3_over_2,vfx); //14
-      vfy = _mm256_fmadd_ps(dy,d_3_over_2,vfy); //16
-      vfz = _mm256_fmadd_ps(dz,d_3_over_2,vfz); //18
-    }
+      for (u64 j = 0; j < n; j++)
+	{
+	  //Newton's law
+	  dx = p->x[j] - pxi; dy = p->y[j] - pyi; dz = p->z[j] - pzi;
+	  
+    const f32 d_2 = (dx * dx) + (dy * dy) + (dz * dz) + softening; //9
+    f32 tmp = sqrt(d_2);  //10
+    const f32 d_3_over_2 = tmp * tmp * tmp; //12
+
+	  //Net force
+	  fx += dx / d_3_over_2; //14
+	  fy += dy / d_3_over_2; //16
+	  fz += dz / d_3_over_2; //18
+	}
+
       //
-      vxi = _mm256_fmadd_ps(vdt,vfx,vxi); //20
-      vyi = _mm256_fmadd_ps(vdt,vfy,vyi); //22
-      vzi = _mm256_fmadd_ps(vdt,vfz,vzi); //24
-       
-      _mm256_storeu_ps(&p->vx[i],vxi);
-      _mm256_storeu_ps(&p->vy[i],vyi);
-      _mm256_storeu_ps(&p->vz[i],vzi);
-  }
+      p->vx[i] += dt * fx; //20
+      p->vy[i] += dt * fy; //22
+      p->vz[i] += dt * fz; //24
+    }
 
   //3 floating-point operations
-  for (u64 i = 0; i < n; i+=8)
+  for (u64 i = 0; i < n; i++)
     {
-      pxi = _mm256_loadu_ps(&p->x[i]);
-      pyi = _mm256_loadu_ps(&p->y[i]);
-      pzi = _mm256_loadu_ps(&p->z[i]);
-
-      vxi = _mm256_loadu_ps(&p->vx[i]);
-      vyi = _mm256_loadu_ps(&p->vy[i]);
-      vzi = _mm256_loadu_ps(&p->vz[i]);
-
-
-      pxi = _mm256_fmadd_ps(vdt,vxi,pxi);
-      pyi = _mm256_fmadd_ps(vdt,vyi,pyi);
-      pzi = _mm256_fmadd_ps(vdt,vzi,pzi);
-      _mm256_storeu_ps(&p->x[i],pxi);
-      _mm256_storeu_ps(&p->y[i],pyi);
-      _mm256_storeu_ps(&p->z[i],pzi);
+      p->x[i] += dt * p->vx[i];
+      p->y[i] += dt * p->vy[i];
+      p->z[i] += dt * p->vz[i];
     }
+    printf("%f\n",p->x[2]);
 }
 
 //
